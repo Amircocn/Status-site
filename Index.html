@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aremi Status</title>
+    <style>
+        body {
+            background-color: #161518;
+            color: #ffffff;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #161518;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+            position: relative;
+        }
+
+        nav {
+            background-color: #444444;
+            padding: 3em;
+            text-align: center;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 20px;
+            z-index: 1;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+            width: 70%;
+            max-width: 400px;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        nav.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            display: block;
+            padding: 1.5em;
+            margin: 1em 0;
+            border-radius: 10px;
+            background-color: #7C4DFF;
+            color: #ffffff;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        nav a:hover {
+            background-color: #8F5CC2;
+            transform: scale(1.05);
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .status-box {
+            border: 2px solid #6e0909;
+            padding: 40px;
+            margin: 20px;
+            border-radius: 20px;
+            transition: all 0.3s ease-in-out;
+            width: 70%;
+            max-width: 400px;
+        }
+
+        .status-box:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background-color: #161518;
+            color: #ffffff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #join-discord-btn {
+            background-color: #161518;
+            color: #ffffff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        #join-discord-btn:hover {
+            background-color: #bd2727;
+            transform: scale(1.05);
+        }
+
+        #toggle-nav-btn {
+            display: block;
+            position: absolute;
+            top: 1em;
+            left: 1em;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        #toggle-nav-btn div {
+            width: 30px;
+            height: 3px;
+            background-color: #161518;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        #toggle-nav-btn.active div:nth-child(1) {
+            transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        #toggle-nav-btn.active div:nth-child(2) {
+            opacity: 0;
+        }
+
+        #toggle-nav-btn.active div:nth-child(3) {
+            transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .status-box {
+        border: 2px solid #6e0909;
+        padding: 40px;
+        margin: 20px;
+        border-radius: 20px;
+        transition: all 0.3s ease-in-out;
+        width: 70%;
+        max-width: 400px;
+    }
+
+    .status-box:hover {
+        transform: scale(1.05);
+    }
+
+    #woofer-status-text {
+        color: #3700ff; /* Green color for the "Working" text */
+    }
+
+    #cleaner-status-text {
+        color: #0011ff; /* Green color for the "Working" text */
+    }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1> Status</h1>
+        <div id="toggle-nav-btn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="" id="join-discord-btn">Join Discord</a>
+    </nav>
+
+    <main>
+        <div class="status-box" id="woofer-status">
+            <h2>Spoofer Status</h2>
+            <p class="last-updated">Updated On: 9/03/24</p>
+            <p>Status: <span id="woofer-status-text">Developing</span></p>
+            <!-- Additional features for the woofer status box can be added here -->
+        </div>
+
+        <div class="status-box" id="cleaner-status">
+            <h2>Temp Status</h2>
+            <p class="last-updated">Updated On: 11/03/24</p>
+            <p>Status: <span id="cleaner-status-text">Developing</span></p>
+            
+            <!-- Additional features for the cleaner status box can be added here -->
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Aremi</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const toggleNavBtn = document.getElementById('toggle-nav-btn');
+            const nav = document.querySelector('nav');
+
+            toggleNavBtn.addEventListener('click', () => {
+                nav.classList.toggle('active');
+                toggleNavBtn.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
